@@ -1,0 +1,35 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+
+double f(const double& t, const double& x);
+
+void Runge_Kutta(std::vector<double>& x, std::vector<double>& t, const double& h, const int& n);
+
+void printVector(std::vector<double>& v);
+
+void error();
+
+int main()
+{
+
+        double h = 0.1;
+        int n = 1. / h;
+
+        std::vector<double> t(n+1);
+        std::vector<double> x(n+1);
+
+        t[0] = 0;
+        x[0] = 0;
+
+        Runge_Kutta(x, t, h, n);
+
+        std::cout << "t = ";
+        printVector(t);
+        std::cout << "x = ";
+        printVector(x);
+
+        //std::cout << x[n] << "\n";
+
+        error();
+                                     
